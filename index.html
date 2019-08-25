@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Home</title>
+    <style>
+html, body, div, img, input, ul, li {
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background: rgb(251,107,255);
+  background: linear-gradient(60deg, rgba(251,107,255,1) 0%, rgba(252,255,201,1) 100%);
+  position: relative;
+  background-color: black;
+}
+
+#container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 70%;
+  text-align: center;
+  font-family: helvetica;
+  color: white;
+}
+
+img{
+  display:block;
+  width: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+video {
+  margin-right:auto;
+  margin-left:auto;
+  width: 40%;
+  display:none;
+  border: 10px solid white;
+  box-shadow: 10px 10px grey;
+}
+li {
+  margin: 20px 0px;
+  list-style: none;
+}
+    </style>
+  </head>
+  <body id="body">
+    <div id="container">
+      <video id="video" src="face.mp4" autoplay loop muted></video>
+      <img id="logo" src='logo.png'>
+      <ul id="list">
+        <li><audio id="audio" src="moan.mp3" autoplay loop></audio></li>
+        <li> click </li>
+      </ul>
+    </div>
+  </body>
+  <script>
+    var player = document.getElementById("audio")
+    var box = document.getElementById("container")
+    document.body.addEventListener("click", function() {
+      player.play()
+      display("logo","none")
+      display("list","none")
+      display("video","block")
+      function display(id,property){
+        document.getElementById(id).style.display = property
+      }
+    })
+    function pageLoop(timestamp){
+      document.body.style.background = 'linear-gradient('+timestamp*.5+'deg, rgba(251,107,255,1) 0%, rgba(252,255,201,1) 100%)'
+      var posx = -(50 + 2*Math.cos(timestamp*.01))
+      var posy = -(50 + 2*Math.sin(timestamp*.01))
+      box.style.transform = `translate(${posx}%,${posy}%)`
+      window.requestAnimationFrame(pageLoop)
+    }
+    window.requestAnimationFrame(pageLoop)
+  </script>
+</html>

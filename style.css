@@ -1,43 +1,163 @@
-html, body, img {
-  margin: 0;
-  padding: 0;
-}
-
-html, body {
+html, body, #game, #background-main, .splide__track, .splide__list, .game, .scene {
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Pangolin', cursive;
+}
+#background-main{
+    position: absolute
+}
+.scene .start{
+    position: relative
 }
 
-body {
+.scene{
     display: flex;
+    background: black;
 }
 
-center {
+.start, .ending, .load-game div{
     margin:auto;
 }
 
-#logo{
-    animation-name: rotateLogo;
+.start-game, .load-game div{
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    font-size: 3em;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    animation-name: animateText;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    text-shadow: 0 0 3px #FF0000;
+}
+
+@keyframes animateText{
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.title{
+    width: 70vw;
+    height: 30vh;
+    background: url('logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation-name: animateLogo;
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-timing-function: ease;
 }
 
-#ded {
+@keyframes animateLogo{
+    25%{
+        transform: rotate(3deg);
+    }
+    50% {
+        transform: translate(0, -20px);
+    }
+    75%{
+        transform: rotate(-3deg);
+    }
+    100% {
+        transform: translate(0, 0px) rotate(0deg);
+    }
+}
+
+.selection{
+    background-color: white;
+    background: url('img/park.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.textBox{
+    background: rgba(243, 155, 193, 0.75);
     position: absolute;
-    bottom: -30px;
-    right: 0px;
+    height: 20vh;
+    width: 90vw;
+    bottom: 0px;
+    margin: 5vw;
+    padding: 30px;
+    font-size: 2em;
+    border-radius: 10px;
+    z-index:100;
+}
+
+.options button{
+    cursor: pointer;
+    font-size: 2em;
+    margin: 0.5em;
+}
+
+.hoshino {
+    height: 90vh;
+    width: 100vw;
+    bottom: 0px;
+    position:absolute;
+    background: url('img/hoshino.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
+    opacity:0;
+}
+
+.show{
+    animation-name: showHoshino;
+    animation-duration: 1.5s;
+    animation-delay: 1s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes showHoshino{
+    0% {
+        opacity: 0
+    }
+    100% {
+        opacity: 1
+    }
+}
+
+.ending{
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    color: white;
+    width: 50%;
+}
+
+.endingImg{
+    width: 100%;
+    height: 250px;
+}
+.endingTitle{
+    color: white;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 4em;
+    line-height: 1em;
+    bottom-margin: 1em;
+}
+
+.play-again{
+    cursor: pointer;
+    padding-top: 2em;
+    text-align:center;
+    animation-name: animateText;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+    text-shadow: 0 0 3px #FF0000;
 }
 
 audio {
    display: none;
-}
-
-@keyframes rotateLogo {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
 }

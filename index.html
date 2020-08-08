@@ -1,15 +1,54 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TG Time Fuckers</title>
+    <title>La vida de donde soy</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@2.4.10/dist/css/splide.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Noto+Sans+JP:wght@700&family=Roboto&display=swap" rel="stylesheet">
   </head>
   <body>
-    <center>
-      <img id="logo" src="logo.png">
-    </center>
-    <img id='ded' src="ded.png">
+      <div id="game">
+          <div class="splide__track">
+            <div class="splide__list">
+                <div class="splide__slide scene load-game">
+                    <div>Click para cargar el juego.</div>
+                </div>
+                <div class="splide__slide scene main">
+                    <div id="background-main">
+                        <div class="splide__track">
+                            <div class="splide__list">
+                                <div class="splide__slide"><img src="img/m1.jpg"></div>
+                                <div class="splide__slide"><img src="img/m2.jpg"></div>
+                                <div class="splide__slide"><img src="img/m3.jpg"></div>
+                                <div class="splide__slide"><img src="img/m4.jpg"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="start">
+                      <div class="title"></div>
+                      <div class="start-game click">Empezar partida</div>
+                    </div>
+                </div>
+                <div class="splide__slide scene selection">
+                    <div class="hoshino"></div>
+                    <div class="textBox">
+                        <div class="options">
+                            <button class="click">Sí</button>
+                            <button class="click">No</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="splide__slide scene end">
+                    <div class="ending">
+                        <div class="endingImg"></div>
+                        <div class="endingTitle"></div>
+                        <div class="play-again click">Jugar de nuevo</div>
+                    </div>
+                </div>
+            </div>
+          </div>
+      </div>
   </body>
-  <audio id="audio" src="mdg.mp3" loop></audio>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
   <script src="main.js"></script>
 </html>
